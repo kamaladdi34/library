@@ -10,7 +10,12 @@ createBookButton.addEventListener('click',(event)=>{
     let bookAuthor = bookAuthorInput.value;
     let isRead = bookReadInput.checked;
     event.preventDefault();
-    if(bookName == '' || bookAuthor == ''){
+    if(bookName == ''){
+        bookNameInput.reportValidity();;
+        return;
+    }
+    if(bookAuthor == ''){
+        bookAuthorInput.reportValidity();;
         return;
     }
     addBookToLibrary(bookName, bookAuthor, isRead);
