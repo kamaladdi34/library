@@ -9,6 +9,9 @@ createBookButton.addEventListener('click',(e)=>{
     let bookName = bookNameInput.value;
     let bookAuthor = bookAuthorInput.value;
     let isRead = bookReadInput.checked;
+    if(bookName == '' || bookAuthor == ''){
+        return;
+    }
     addBookToLibrary(bookName, bookAuthor, isRead);
     addBookPoPup.style.display = 'none';
 })
