@@ -27,7 +27,6 @@ addBookButton.addEventListener('click',(event)=>{
     bookAuthorInput.checked = false;
 })
 const books = [];
-console.log(books);
 function Book(name,author,isRead,index,DOMnode){
     this.name = name;
     this.author = author;
