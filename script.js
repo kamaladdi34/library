@@ -48,11 +48,14 @@ function createBookNode(name,author,isRead,index){
     bookInfo.appendChild(readToggle);
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-book-btn');
-    deleteButton.textContent = 'Delete';
     deleteButton.addEventListener('click',(e)=>{
         booksContainer.removeChild(books[index].DOMnode);
         delete books[index];
-    })
+    });
+    const svgDeleteIcon = document.createElement('img');
+    svgDeleteIcon.classList.add('svg-icon')
+    deleteButton.appendChild(svgDeleteIcon);
+    svgDeleteIcon.src= './icons/delete_outline.svg'
     bookInfo.appendChild(deleteButton);
     const book = document.createElement('div');
     book.classList.add('book');
