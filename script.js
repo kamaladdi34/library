@@ -32,6 +32,10 @@ function createBookNode(name,author,index){
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-book-btn');
     deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click',(e)=>{
+        booksContainer.removeChild(books[index].DOMnode);
+        delete books[index];
+    })
     bookInfo.appendChild(deleteButton);
     const book = document.createElement('div');
     book.classList.add('book');
