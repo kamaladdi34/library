@@ -8,6 +8,7 @@
 }
 body{
     background-color: #f9f9f9;
+    min-height: 100vh;
 }
 header{
     background-color: #ffffff;
@@ -41,7 +42,6 @@ button, label{
     user-select: none;
 }
 .books-container{
-    min-height:100vh;
     max-width: 1200px;
     background-color: #ffffff;
     margin: 0 auto;
