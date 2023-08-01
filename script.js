@@ -1,8 +1,19 @@
 const addBookButton = document.querySelector('.add-book-btn');
 const booksContainer = document.querySelector('.books-container');
-
+const addBookPoPup = document.querySelector('.add-book');
+const bookNameInput = document.querySelector('.book-name-input');
+const bookAuthorInput = document.querySelector('.book-author-input');
+const bookReadInput = document.querySelector('.book-read-input');
+const createBookButton = document.querySelector('.create-book-btn');
+createBookButton.addEventListener('click',(e)=>{
+    let bookName = bookNameInput.value;
+    let bookAuthor = bookAuthorInput.value;
+    let isRead = bookReadInput.checked;
+    addBookToLibrary(bookName, bookAuthor, isRead);
+    addBookPoPup.style.display = 'none';
+})
 addBookButton.addEventListener('click',(e)=>{
-    console.log(e);
+    addBookPoPup.style.display = 'flex';
 })
 const books = [];
 function Book(name,author,isRead,index,DOMnode){
@@ -13,9 +24,9 @@ function Book(name,author,isRead,index,DOMnode){
     this.DOMnode = DOMnode;
 }
 function addBookToLibrary(name,author,isRead) {
-    books.push(new Book(name,author,isRead,books.length,createBookNode(name,author,books.length)))
+    books.push(new Book(name,author,isRead,books.length,createBookNode(name,author,isRead,books.length)))
 }
-function createBookNode(name,author,index){
+function createBookNode(name,author,isRead,index){
     const bookInfo = document.createElement('div');
     bookInfo.classList.add('book-info');
     const readToggle = document.createElement('div');
@@ -26,6 +37,7 @@ function createBookNode(name,author,index){
     const checkBox = document.createElement('input');
     checkBox.type = 'checkbox';
     checkBox.id = 'read-checkbox' + index;
+    checkBox.checked = isRead;
     readToggle.appendChild(checkBoxLabel);
     readToggle.appendChild(checkBox);
     bookInfo.appendChild(readToggle);
@@ -51,4 +63,5 @@ function createBookNode(name,author,index){
     booksContainer.appendChild(book);
     return book;
 }
-addBookToLibrary('Hello','Author',false)
+addBookToLibrary('A Game of Thrones','George R. R. Martin',true)
+addBookToLibrary('The Lord of the Rings','John Ronald Reuel Tolkien',true)
