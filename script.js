@@ -18,6 +18,8 @@ createBookButton.addEventListener('click',(event)=>{
 })
 addBookButton.addEventListener('click',(event)=>{
     addBookPoPup.style.display = 'flex';
+    bookNameInput.value = bookAuthorInput.value = '';
+    bookAuthorInput.checked = false;
 })
 const books = [];
 console.log(books);
@@ -45,6 +47,7 @@ function createBookNode(name,author,isRead,index){
     checkBox.checked = isRead;
     readToggle.appendChild(checkBoxLabel);
     readToggle.appendChild(checkBox);
+    readToggle.addEventListener('click',(event)=>{ checkBox.checked = !checkBox.checked })
     bookInfo.appendChild(readToggle);
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-book-btn');

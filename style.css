@@ -56,12 +56,14 @@ button{
     display: grid;
     grid-template-rows: auto 4fr 1fr;
     border-radius: 6px;
+    padding: 6px;
 }
 .book-title, .book-author{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow: hidden;
 }
 .book-title{
     font-size: 2.5rem;
