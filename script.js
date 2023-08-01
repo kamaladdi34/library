@@ -5,20 +5,22 @@ const bookNameInput = document.querySelector('.book-name-input');
 const bookAuthorInput = document.querySelector('.book-author-input');
 const bookReadInput = document.querySelector('.book-read-input');
 const createBookButton = document.querySelector('.create-book-btn');
-createBookButton.addEventListener('click',(e)=>{
+createBookButton.addEventListener('click',(event)=>{
     let bookName = bookNameInput.value;
     let bookAuthor = bookAuthorInput.value;
     let isRead = bookReadInput.checked;
+    event.preventDefault();
     if(bookName == '' || bookAuthor == ''){
         return;
     }
     addBookToLibrary(bookName, bookAuthor, isRead);
     addBookPoPup.style.display = 'none';
 })
-addBookButton.addEventListener('click',(e)=>{
+addBookButton.addEventListener('click',(event)=>{
     addBookPoPup.style.display = 'flex';
 })
 const books = [];
+console.log(books);
 function Book(name,author,isRead,index,DOMnode){
     this.name = name;
     this.author = author;
