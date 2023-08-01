@@ -41,8 +41,6 @@ function addBookToLibrary(name,author,isRead) {
 function createBookNode(name,author,isRead,index){
     const bookInfo = document.createElement('div');
     bookInfo.classList.add('book-info');
-    const readToggle = document.createElement('div');
-    readToggle.classList.add('read-toggle');
     const checkBoxLabel = document.createElement('label');
     checkBoxLabel.htmlFor = 'read-checkbox' + index;
     checkBoxLabel.textContent = 'Read';
@@ -50,10 +48,9 @@ function createBookNode(name,author,isRead,index){
     checkBox.type = 'checkbox';
     checkBox.id = 'read-checkbox' + index;
     checkBox.checked = isRead;
-    readToggle.appendChild(checkBoxLabel);
-    readToggle.appendChild(checkBox);
-    readToggle.addEventListener('click',(event)=>{ checkBox.checked = !checkBox.checked })
-    bookInfo.appendChild(readToggle);
+    checkBoxLabel.appendChild(checkBox);
+    checkBoxLabel.classList.add('read-toggle');
+    bookInfo.appendChild(checkBoxLabel);
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-book-btn');
     deleteButton.addEventListener('click',(e)=>{
