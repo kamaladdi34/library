@@ -47,6 +47,9 @@ function createBookNode(name,author,isRead,index){
     checkBox.type = 'checkbox';
     checkBox.id = 'read-checkbox' + index;
     checkBox.checked = isRead;
+    checkBox.addEventListener('change',(event)=>{
+        books[index].isRead = event.target.checked;
+    })
     checkBoxLabel.appendChild(checkBox);
     checkBoxLabel.classList.add('read-toggle');
     bookInfo.appendChild(checkBoxLabel);
