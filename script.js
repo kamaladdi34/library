@@ -11,11 +11,11 @@ createBookButton.addEventListener('click',(event)=>{
     let isRead = bookReadInput.checked;
     event.preventDefault();
     if(bookName == ''){
-        bookNameInput.reportValidity();;
+        bookNameInput.reportValidity();
         return;
     }
     if(bookAuthor == ''){
-        bookAuthorInput.reportValidity();;
+        bookAuthorInput.reportValidity();
         return;
     }
     addBookToLibrary(bookName, bookAuthor, isRead);
