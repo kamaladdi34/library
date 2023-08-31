@@ -27,12 +27,14 @@ addBookButton.addEventListener('click',(event)=>{
     bookAuthorInput.checked = false;
 })
 const books = [];
-function Book(name,author,isRead,index,DOMnode){
-    this.name = name;
-    this.author = author;
-    this.isRead = isRead;
-    this.index = index;
-    this.DOMnode = DOMnode;
+class Book{
+    constructor(name,author,isRead,index,DOMnode){
+        this.name = name;
+        this.author = author;
+        this.isRead = isRead;
+        this.index = index;
+        this.DOMnode = DOMnode;
+    }
 }
 function addBookToLibrary(name,author,isRead) {
     books.push(new Book(name,author,isRead,books.length,createBookNode(name,author,isRead,books.length)))
