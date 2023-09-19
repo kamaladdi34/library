@@ -1,25 +1,37 @@
 const addBookButton = document.querySelector('.add-book-btn');
+const form = document.querySelector('.container');
 const booksContainer = document.querySelector('.books-container');
 const addBookPoPup = document.querySelector('.add-book');
 const bookNameInput = document.querySelector('.book-name-input');
 const bookAuthorInput = document.querySelector('.book-author-input');
 const bookReadInput = document.querySelector('.book-read-input');
 const createBookButton = document.querySelector('.create-book-btn');
+const bookAuthorInputInfo = document.querySelector('.book-author-input + span')
+const bookNameInputInfo = document.querySelector('.book-name-input + span')
 createBookButton.addEventListener('click',(event)=>{
     let bookName = bookNameInput.value;
     let bookAuthor = bookAuthorInput.value;
     let isRead = bookReadInput.checked;
     event.preventDefault();
     if(bookName == ''){
-        bookNameInput.reportValidity();;
-        return;
+        bookNameInputInfo.classList.add('error');
+        bookNameInputInfo.innerText = 'Book name cannot be empty';
+    }else{
+        bookNameInputInfo.classList.remove('error');
+        bookNameInputInfo.innerText = 'Book name is valid.';
     }
     if(bookAuthor == ''){
-        bookAuthorInput.reportValidity();;
+        bookAuthorInputInfo.classList.add('error');
+        bookAuthorInputInfo.innerText = 'Book Author cannot be empty';
         return;
+    }else{
+        bookAuthorInputInfo.classList.remove('error');
+        bookAuthorInputInfo.innerText = 'Book author name is valid.';
     }
     addBookToLibrary(bookName, bookAuthor, isRead);
     addBookPoPup.style.display = 'none';
+    bookAuthorInputInfo.innerText = '';
+    bookNameInputInfo.innerText = '';
 })
 addBookButton.addEventListener('click',(event)=>{
     addBookPoPup.style.display = 'flex';

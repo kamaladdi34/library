@@ -113,7 +113,6 @@ button, label{
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     width: min(500px,100%);
     padding: 50px;
     border-radius: 6px;
@@ -131,4 +130,17 @@ button, label{
 }
 .svg-icon{
     filter: invert(42%) sepia(0%) saturate(1352%) hue-rotate(87deg) brightness(1219%) contrast(119%);
+}
+.book-name-input + span, .book-author-input + span{
+    padding-top: 0px;
+    padding-bottom: 30px;
+    color: rgb(44, 174, 0);
+    font-size: 14px;
+    height: 14px;
+}
+.book-name-input + span.error, .book-author-input + span.error{
+    color: red;
+}
+.read{
+    padding-bottom: 10px;
 }
